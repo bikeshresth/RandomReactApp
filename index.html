@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <title>Project</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        class App extends React.Component{
+          state={
+            name: "Bikesh",
+            position: "Striker"
+          }
+
+          handleClick=(e)=>{
+            // console.log(e.target);
+            this.setState({
+              name: "Alina"
+            })
+            console.log(this.state);
+          }
+          
+          handleMouseOver=(e)=>{
+            console.log(e.target, e.pageX);
+          }
+
+          handleCopy=(e)=>{
+            console.log('You already have kicked the ball');
+          }
+
+            render(){
+                return(
+                    <div>
+                    <h1> NINJA </h1>    
+                    <p>My name is {this.state.name} and my position is {this.state.position}</p>
+                    <button onClick={this.handleClick}> Kick me </button>
+                    <button onMouseOver={this.handleMouseOver}> Hover me </button>
+                    <p onCopy={this.handleCopy}>Plase kick the ball</p>
+                     </div> 
+                )
+            }
+        }
+
+        ReactDOM.render(<App/>,document.getElementById('app'));
+    </script>
+  </body>
+</html>
